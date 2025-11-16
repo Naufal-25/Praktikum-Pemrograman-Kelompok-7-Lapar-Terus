@@ -10,4 +10,4 @@ def tambah_makanan(daftar_makanan):
     makanan_baru = Makanan(id_makanan, nama, harga, stok)
     daftar_makanan.append(makanan_baru)
     print(f"{nama} berhasil ditambahkan!\n")
-#[[Placehoder]]
+

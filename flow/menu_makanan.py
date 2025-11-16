@@ -1,7 +1,7 @@
-from fitur.makanan.tambah_makan import tambah_makanan
-from fitur.makanan.baca_makan import tampilkan_makanan
-from fitur.makanan.ubah_makan import ubah_makanan
-from fitur.makanan.hapus_makan import hapus_makanan
+from fitur.makanan.tambah_makanan import tambah_makanan
+from fitur.makanan.baca_makanan import baca_makanan
+from fitur.makanan.ubah_makanan import ubah_makanan
+from fitur.makanan.hapus_makanan import hapus_makanan
 
 def menu_makanan():
     while True:
@@ -16,7 +16,7 @@ def menu_makanan():
         if pilihan == "1":
             tambah_makanan()
         elif pilihan == "2":
-            tampilkan_makanan()
+            baca_makanan()
         elif pilihan == "3":
             ubah_makanan()
         elif pilihan == "4":

@@ -1,5 +1,5 @@
 from fitur.pesanan.tambah_pesan import tambah_pesanan
-from fitur.pesanan.baca_pesan import tampilkan_pesanan
+from fitur.pesanan.baca_pesan import baca_pesanan
 from fitur.pesanan.ubah_pesan import ubah_pesanan
 from fitur.pesanan.hapus_pesan import hapus_pesanan
 
@@ -16,7 +16,7 @@ def menu_pesanan():
         if pilihan == "1":
             tambah_pesanan()
         elif pilihan == "2":
-            tampilkan_pesanan()
+            baca_pesanan()
         elif pilihan == "3":
             ubah_pesanan()
         elif pilihan == "4":

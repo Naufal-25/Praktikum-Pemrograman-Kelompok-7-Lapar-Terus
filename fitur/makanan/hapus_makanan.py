@@ -8,4 +8,4 @@ def hapus_makanan(daftar_makanan):
             print(f"{makanan.nama} berhasil dihapus.\n")
             return
     print("Makanan tidak ditemukan.\n")
-#[[Placehoder]]
+

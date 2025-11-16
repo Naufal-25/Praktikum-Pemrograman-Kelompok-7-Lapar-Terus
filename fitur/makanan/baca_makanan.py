@@ -5,4 +5,4 @@ def baca_makanan(daftar_makanan):
         return
     for makanan in daftar_makanan:
         print(f"[{makanan.id_makanan}] {makanan.nama} - Rp{makanan.harga} | Stok: {makanan.stok}")
-#[[Placehoder]]
+
