@@ -1,4 +1,5 @@
 from object.detail import Detail
+from object.transaksi import Transaksi
 
 def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
     print("\n=== Tambah Pesanan ===")
@@ -11,7 +12,6 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
             break
 
     if not transaksi:
-        from object.transaksi import Transaksi
         transaksi = Transaksi(id_transaksi, pembeli)
         daftar_transaksi.append(transaksi)
 
@@ -22,11 +22,13 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
             if jumlah > makanan.stok:
                 print("Stok tidak cukup!")
                 return
+            
             makanan.stok -= jumlah
             id_detail = f"D{len(transaksi.detail)+1:03d}"
             detail_baru = Detail(id_detail, transaksi, makanan, jumlah)
             transaksi.tambah_detail(detail_baru)
             print(f"Pesanan {makanan.nama} berhasil ditambahkan ke transaksi {id_transaksi}\n")
             return
+        
     print("Makanan tidak ditemukan.\n")
-#[[Placehoder]]
+

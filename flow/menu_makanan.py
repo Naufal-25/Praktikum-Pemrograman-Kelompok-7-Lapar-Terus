@@ -3,7 +3,7 @@ from fitur.makanan.baca_makanan import baca_makanan
 from fitur.makanan.ubah_makanan import ubah_makanan
 from fitur.makanan.hapus_makanan import hapus_makanan
 
-def menu_makanan():
+def menu_makanan(daftar_makanan):
     while True:
         print("\n=== MENU MAKANAN ===")
         print("1. Tambah Makanan")
@@ -14,13 +14,13 @@ def menu_makanan():
         pilihan = input("Pilih menu: ")
 
         if pilihan == "1":
-            tambah_makanan()
+            tambah_makanan(daftar_makanan)
         elif pilihan == "2":
-            baca_makanan()
+            baca_makanan(daftar_makanan)
         elif pilihan == "3":
-            ubah_makanan()
+            ubah_makanan(daftar_makanan)
         elif pilihan == "4":
-            hapus_makanan()
+            hapus_makanan(daftar_makanan)
         elif pilihan == "5":
             break
         else:

@@ -8,4 +8,3 @@ def hapus_pesanan(daftar_transaksi):
             print(f"Transaksi {id_transaksi} berhasil dihapus.\n")
             return
     print("Transaksi tidak ditemukan.\n")
-#[[Placehoder]]
