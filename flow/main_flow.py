@@ -1,10 +1,11 @@
+from object.pembeli import Pembeli
 from flow.menu_makanan import menu_makanan
 from flow.menu_pesanan import menu_pesanan
 
 def main():
     daftar_makanan = []
     daftar_transaksi = []
-    pembeli = pembeli("P001", "Pengunjung", "-")
+    pembeli = Pembeli("P001", "Pengunjung", "-")
     while True:
         print("\n=== SISTEM KANTIN ===")
         print("1. Kelola Makanan")
