@@ -3,7 +3,7 @@ from fitur.pesanan.baca_pesan import baca_pesanan
 from fitur.pesanan.ubah_pesan import ubah_pesanan
 from fitur.pesanan.hapus_pesan import hapus_pesanan
 
-def menu_pesanan(daftar_transaksi, datar_makanan, pembeli):
+def menu_pesanan(daftar_transaksi, daftar_makanan, pembeli):
     while True:
         print("\n=== MENU PESANAN ===")
         print("1. Tambah Pesanan")
@@ -14,7 +14,7 @@ def menu_pesanan(daftar_transaksi, datar_makanan, pembeli):
         pilihan = input("Pilih menu: ")
 
         if pilihan == "1":
-            tambah_pesanan(daftar_transaksi, datar_makanan, pembeli)
+            tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli)
         elif pilihan == "2":
             baca_pesanan(daftar_transaksi)
         elif pilihan == "3":
