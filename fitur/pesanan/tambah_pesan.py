@@ -1,5 +1,6 @@
 from object.detail import Detail
 from object.transaksi import Transaksi
+from object.pembeli import Pembeli
 from fitur.makanan.datamanage_makanan import save_makanan
 from fitur.pesanan.datamanage_pesan import save_transaksi
 from fitur.pesanan.datamanage_detail import save_detail
@@ -15,6 +16,12 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
             break
 
     if not transaksi:
+        print("\n=== Data Pembeli ===")
+        id_pembeli = input("ID Pembeli: ")
+        nama = input("Nama Pembeli: ")
+        kontak = input("Kontak: ")
+
+        pembeli = Pembeli(id_pembeli, nama, kontak)
         transaksi = Transaksi(id_transaksi, pembeli)
         daftar_transaksi.append(transaksi)
 

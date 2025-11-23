@@ -15,15 +15,15 @@ class Transaksi:
     
     def __str__(self):
         total = self.total()
-        return f"Transaksi[{self.id_transaksi}] - {self.pembeli.nama} | Total: Rp{total} | Status: {self.status} Kontak: {self.pembeli.kontak}"
+        return f"Transaksi[{self.id_transaksi}] - {self.pembeli.nama}({self.pembeli.kontak}) | Total: Rp{total} | Status: {self.status} Kontak: {self.pembeli.kontak}"
     
     #simpan ke database txt
     def to_text(self):
-        return f"{self.id_transaksi},{self.pembeli.nama},{self.pembeli.kontak},{self.status}"
+        return f"{self.id_transaksi},{self.pembeli.id_pembeli},{self.pembeli.nama},{self.pembeli.kontak},{self.status}"
     
     #buka dari database txt
     @staticmethod
     def from_text(line):
-        id_transaksi, nama, kontak, status = line.strip().split(",")
-        pembeli = Pembeli(0, nama, kontak)
+        id_transaksi, id_pembeli, nama, kontak, status = line.strip().split(",")
+        pembeli = Pembeli(id_pembeli, nama, kontak)
         return Transaksi(id_transaksi, pembeli, status)
