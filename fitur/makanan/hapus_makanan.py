@@ -1,3 +1,5 @@
+from fitur.makanan.datamanage_makanan import save_makanan
+
 def hapus_makanan(daftar_makanan):
     print("\n=== Hapus Makanan ===")
     id_makanan = input("Masukkan ID makanan yang ingin dihapus: ")
@@ -5,7 +7,10 @@ def hapus_makanan(daftar_makanan):
     for makanan in daftar_makanan:
         if makanan.id_makanan == id_makanan:
             daftar_makanan.remove(makanan)
+
+            save_makanan(daftar_makanan)
+
             print(f"{makanan.nama} berhasil dihapus.\n")
             return
+        
     print("Makanan tidak ditemukan.\n")
-

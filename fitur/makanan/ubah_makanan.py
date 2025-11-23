@@ -1,3 +1,5 @@
+from fitur.makanan.datamanage_makanan import save_makanan
+
 def ubah_makanan(daftar_makanan):
     print("\n=== Ubah Data Makanan ===")
     id_makanan = input("Masukkan ID makanan yang ingin diubah: ")
@@ -14,4 +16,3 @@ def ubah_makanan(daftar_makanan):
             print("Data makanan berhasil diperbarui!\n")
             return
     print("Makanan tidak ditemukan.\n")
-

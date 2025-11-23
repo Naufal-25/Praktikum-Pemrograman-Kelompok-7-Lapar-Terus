@@ -1,9 +1,10 @@
 from object.pembeli import Pembeli
 from flow.menu_makanan import menu_makanan
 from flow.menu_pesanan import menu_pesanan
+from fitur.makanan.datamanage_makanan import load_makanan
 
 def main():
-    daftar_makanan = []
+    daftar_makanan = load_makanan()
     daftar_transaksi = []
     pembeli = Pembeli("P001", "Pengunjung", "-")
     while True:
