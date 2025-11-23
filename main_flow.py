@@ -2,10 +2,13 @@ from object.pembeli import Pembeli
 from flow.menu_makanan import menu_makanan
 from flow.menu_pesanan import menu_pesanan
 from fitur.makanan.datamanage_makanan import load_makanan
+from fitur.pesanan.datamanage_pesan import load_transaksi
+from fitur.pesanan.datamanage_detail import load_detail
 
 def main():
     daftar_makanan = load_makanan()
-    daftar_transaksi = []
+    daftar_transaksi = load_transaksi()
+    load_detail(daftar_transaksi)
     pembeli = Pembeli("P001", "Pengunjung", "-")
     while True:
         print("\n=== SISTEM KANTIN ===")

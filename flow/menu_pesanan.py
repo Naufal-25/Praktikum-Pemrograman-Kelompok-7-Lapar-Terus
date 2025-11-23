@@ -18,9 +18,9 @@ def menu_pesanan(daftar_transaksi, daftar_makanan, pembeli):
         elif pilihan == "2":
             baca_pesanan(daftar_transaksi)
         elif pilihan == "3":
-            ubah_pesanan(daftar_transaksi)
+            ubah_pesanan(daftar_transaksi, daftar_makanan)
         elif pilihan == "4":
-            hapus_pesanan(daftar_transaksi)
+            hapus_pesanan(daftar_transaksi, daftar_makanan)
         elif pilihan == "5":
             break
         else:
