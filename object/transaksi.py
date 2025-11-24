@@ -1,4 +1,4 @@
-from pembeli import Pembeli
+from object.pembeli import Pembeli
 
 class Transaksi:
     def __init__(self, id_transaksi, pembeli, status="Belum Bayar"):

@@ -8,7 +8,7 @@ from fitur.pesanan.datamanage_detail import load_detail
 def main():
     daftar_makanan = load_makanan()
     daftar_transaksi = load_transaksi()
-    load_detail(daftar_transaksi)
+    load_detail(daftar_transaksi, daftar_makanan)
     pembeli = Pembeli("P001", "Pengunjung", "-")
     while True:
         print("\n=== SISTEM KANTIN ===")
