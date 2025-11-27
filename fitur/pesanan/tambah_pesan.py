@@ -17,11 +17,10 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
 
     if not transaksi:
         print("\n=== Data Pembeli ===")
-        id_pembeli = input("ID Pembeli: ")
         nama = input("Nama Pembeli: ")
         kontak = input("Kontak: ")
 
-        pembeli = Pembeli(id_pembeli, nama, kontak)
+        pembeli = Pembeli(nama, kontak)
         transaksi = Transaksi(id_transaksi, pembeli)
         daftar_transaksi.append(transaksi)
 
