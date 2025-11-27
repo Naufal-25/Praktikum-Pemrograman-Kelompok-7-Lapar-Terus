@@ -9,7 +9,7 @@ def menu_pesanan(daftar_transaksi, daftar_makanan, pembeli):
         print("1. Tambah Pesanan")
         print("2. Lihat Pesanan")
         print("3. Ubah Pesanan")
-        print("4. Hapus Pesanan")
+        print("4. Bayar Pesanan")
         print("5. Kembali ke Menu Utama")
         pilihan = input("Pilih menu: ")
 
