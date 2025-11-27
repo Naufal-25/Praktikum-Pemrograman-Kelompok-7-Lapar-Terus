@@ -22,6 +22,8 @@ def hapus_pesanan(daftar_transaksi, daftar_makanan):
     
     daftar_transaksi.pop(i)
 
+    transaksi.total = sum(d.subtotal for d in transaksi.detail)
+
     save_makanan(daftar_makanan)
     save_transaksi(daftar_transaksi)
     save_detail(daftar_transaksi)

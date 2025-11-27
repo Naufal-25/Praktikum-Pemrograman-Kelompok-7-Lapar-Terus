@@ -62,6 +62,8 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
 
     transaksi.tambah_detail(n_detail)
 
+    transaksi.total += subtotal
+
     save_transaksi(daftar_transaksi)
     save_detail(daftar_transaksi)
 

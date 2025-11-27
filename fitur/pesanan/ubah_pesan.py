@@ -74,6 +74,8 @@ def ubah_pesanan(daftar_transaksi, daftar_makanan):
     target.jumlah = n_jumlah
     target.subtotal = n_jumlah * makanan_obj.harga
 
+    transaksi.total = sum(d.subtotal for d in transaksi.detail)
+
     save_makanan(daftar_makanan)
     save_transaksi(daftar_transaksi)
     save_detail(daftar_transaksi)
