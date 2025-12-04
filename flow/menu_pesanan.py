@@ -10,13 +10,13 @@ def menu_pesanan(daftar_transaksi, daftar_makanan, pembeli):
         print("1. Tambah Pesanan")
         print("2. Lihat Pesanan")
         print("3. Ubah Pesanan")
-        print("4. Hapus Pesanan")
+        print("4. Batalkan Pesanan")
         print("5. Bayar Pesanan")
         print("0. Kembali ke Menu Utama")
         pilihan = input("Pilih menu: ")
 
         if pilihan == "1":
-            tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli)
+            tambah_pesanan(daftar_transaksi, daftar_makanan, None)
         elif pilihan == "2":
             baca_pesanan(daftar_transaksi)
         elif pilihan == "3":

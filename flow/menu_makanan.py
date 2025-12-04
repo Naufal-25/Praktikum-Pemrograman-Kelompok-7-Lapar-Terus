@@ -10,7 +10,7 @@ def menu_makanan(daftar_makanan):
         print("2. Lihat Daftar Makanan")
         print("3. Ubah Makanan")
         print("4. Hapus Makanan")
-        print("5. Kembali ke Menu Utama")
+        print("0. Kembali")
         pilihan = input("Pilih menu: ")
 
         if pilihan == "1":
@@ -21,7 +21,7 @@ def menu_makanan(daftar_makanan):
             ubah_makanan(daftar_makanan)
         elif pilihan == "4":
             hapus_makanan(daftar_makanan)
-        elif pilihan == "5":
+        elif pilihan == "0":
             break
         else:
             print("Pilihan tidak valid.")
