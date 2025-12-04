@@ -19,7 +19,7 @@ class Makanan:
             parts = line.strip().split("|")
             id_makanan = parts[0]
             nama = parts[1]
-            harga = int(float(part[2]))
+            harga = int(float(parts[2]))
             stok = int(parts[3])
             return Makanan(id_makanan, nama, harga, stok)
         except (ValueError, IndexError):
