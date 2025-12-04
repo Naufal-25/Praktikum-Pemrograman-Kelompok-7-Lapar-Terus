@@ -24,6 +24,16 @@ class Transaksi:
     #buka dari database txt
     @staticmethod
     def from_text(line):
-        id_transaksi, nama, kontak, total = line.strip().split("|")
-        pembeli = Pembeli(nama, kontak)
-        return Transaksi(id_transaksi, pembeli, int(float(total)))
+        try:
+            parts = line.strip().split("|")
+            if len(parts) < 4:
+                return None
+            id_transaksi = parts[0]
+            nama = parts[1]
+            kontak = parts[2]
+            total = float(parts[3])
+            pembeli = Pembeli(nama, kontak)
+            return Transaksi(id_transaksi, pembeli, total)
+        
+        except ValueError:
+            return None

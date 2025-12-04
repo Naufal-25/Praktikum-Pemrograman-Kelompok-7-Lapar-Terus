@@ -15,5 +15,12 @@ class Makanan:
     #buat liat dari database txt
     @staticmethod
     def from_text(line):
-        id_makanan, nama, harga, stok = line.strip().split("|")
-        return Makanan(id_makanan, nama, int(float(harga)), int(stok))
+        try:
+            parts = line.strip().split("|")
+            id_makanan = parts[0]
+            nama = parts[1]
+            harga = int(float(part[2]))
+            stok = int(parts[3])
+            return Makanan(id_makanan, nama, harga, stok)
+        except (ValueError, IndexError):
+            return None

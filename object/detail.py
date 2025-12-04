@@ -23,5 +23,13 @@ class Detail:
     #Buka dari database txt
     @staticmethod
     def from_text(line):
-        id_detail, id_transaksi, id_makanan, jumlah, subtotal = line.strip().split("|")
-        return Detail(id_detail, id_transaksi, id_makanan, None, int(jumlah), float(subtotal))
+        try:
+            parts = line.strip().split("|")
+            id_detail = parts[0]
+            id_transaksi = parts[1]
+            id_makanan = parts[2]
+            jumlah = int(parts[3])
+            subtotal = float(parts[4])
+            return Detail(id_detail, id_transaksi, id_makanan, None, jumlah, subtotal)
+        except (ValueError, IndexError):
+            return None
