@@ -5,7 +5,12 @@ file = "makanan.txt"
 
 def load_makanan():
     lines = FileManager.read(file)
-    return [Makanan.from_text(l) for l in lines]
+    daftar_makanan = []
+    
+    for line in lines:
+        makanan = makanan.from_text(line)
+        if makanan is not None:
+            daftar_makanan.append(makanan)
 
 def save_makanan(daftar_makanan):
     lines = [m.to_text() for m in daftar_makanan]
