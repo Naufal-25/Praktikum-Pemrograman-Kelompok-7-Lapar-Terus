@@ -17,8 +17,15 @@ def load_detail(daftar_transaksi, daftar_makanan):
     lines = FileManager.read(file)
     for line in lines:
         d = Detail.from_text(line)
-        d.makanan = dir_makanan.get(d.id_makanan)
-        
-        tr = dir_transaksi.get(d.id_transaksi)
-        if tr is not None:
-            tr.detail.append(d)
+        if d is None:
+            continue
+
+        makanan_obj = dir_makanan.get(d.id_makanan)
+        if makanan_obj:
+            d.makanan = makanan_obj
+        else:
+            continue
+
+        transaksi_obj = dir_transaksi.get(d.id_transaksi)
+        if transaksi_obj:
+            transaksi_obj.tambah_detail(d)

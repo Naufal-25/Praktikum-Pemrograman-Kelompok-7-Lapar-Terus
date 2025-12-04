@@ -1,32 +1,32 @@
-from fitur.makanan.datamanage_makanan import save_makanan
-from fitur.pesanan.datamanage_pesan import save_transaksi
-from fitur.pesanan.datamanage_detail import save_detail
-
 def bayar_pesanan(daftar_transaksi, daftar_makanan):
-    print("\n=== Hapus Transaksi ===")
-    id_transaksi = input("Masukkan ID transaksi: ")
+    print("\n=== Pembayaran (Kasir) ===")
+    id_transaksi = input("Masukkan ID transaksi: ").strip()
 
-    index = None
-    for i, transaksi in enumerate(daftar_transaksi):
-        if transaksi.id_transaksi == id_transaksi:
-            index = i
-            for d in transaksi.detail:
-                for m in daftar_makanan:
-                    if m.id_makanan == d.id_makanan:
-                        m.stok += d.jumlah
+    target = None
+    for t in daftar_transaksi:
+        if t.id_transaksi == id_transaksi:
+            target = t
             break
-    
-    if index is None:
-        print("Transaksi tidak ditemukan\n")
+
+    if not target:
+        print("transakasi tidak ditemukan")
         return
     
-    daftar_transaksi.pop(i)
+    total_tagihan = target.hitung_total()
 
-    transaksi.total = sum(d.subtotal for d in transaksi.detail)
-
-    save_makanan(daftar_makanan)
-    save_transaksi(daftar_transaksi)
-    save_detail(daftar_transaksi)
+    print("\n"+"="*30)
+    print(f"Tagihan : {target.pembeli.nama}")
+    print(f"Total   : Rp{total_tagihan}")
+    print("="*30)
+    try:
+        uang = float(input("Uang Tunai: Rp "))
+        if uang < total_tagihan:
+            kurang = total_tagihan - uang
+            print(f"Uang kurang: Rp {kurang}")
+        else:
+            kembalian =  uang - total_tagihan
+            print(f"Kembalian : Rp {kembalian}")
+            print("\n--- Pembayaran Lunas ---")
+    except ValueError:
+        print("Input uang tidak valid")
     
-    print(f"Transaksi {id_transaksi} berhasil dibayar.\n")
-    return

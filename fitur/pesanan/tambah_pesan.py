@@ -7,7 +7,10 @@ from fitur.pesanan.datamanage_detail import save_detail
 
 def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
     print("\n=== Tambah Pesanan ===")
-    id_transaksi = input("ID Transaksi: ")
+    id_transaksi = input("ID Transaksi: ").strip()
+    if not id_transaksi:
+        print("ID tidak boleh kosong")
+        return
 
     transaksi = None
     for t in daftar_transaksi:
@@ -17,12 +20,14 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
 
     if not transaksi:
         print("\n=== Data Pembeli ===")
-        nama = input("Nama Pembeli: ")
-        kontak = input("Kontak: ")
+        nama = input("Nama Pembeli: ").strip()
+        kontak = input("Kontak: ").strip()
 
         pembeli = Pembeli(nama, kontak)
         transaksi = Transaksi(id_transaksi, pembeli)
         daftar_transaksi.append(transaksi)
+    else:
+        print(f"Melanjutkan pesanan untuk: {transaksi.pembeli.nama}")
 
     id_makanan = input("Masukkan ID makanan: ")
 
@@ -36,8 +41,10 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
         print("Makanan tidak ditemukan\n")
         return
     
+    print(f"Dipilih: {makanan_obj.nama} (Stok: {makanan_obj.stok})")
+    
     try:
-        jumlah = int(input("Jumlah: "))
+        jumlah = int(input("Jumlah pesan: "))
     except ValueError:
         print("Jumlah harus angka!")
         return
@@ -47,21 +54,20 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
         return
     
     if jumlah > makanan_obj.stok:
-        print("Stok tidak cukup!")
+        print(f"Stok tidak cukup! Stok Tersedia: {makanan_obj.stok}")
         return
     
     makanan_obj.stok -= jumlah
-    save_makanan(daftar_makanan)
-
-    id_detail = input("Masukkan ID detail pesanan: ")
-    
     subtotal = makanan_obj.harga * jumlah
 
-    n_detail = Detail(id_detail,id_transaksi,makanan_obj.id_makanan,makanan_obj,jumlah,subtotal)
+    urutan =  len(transaksi.detail) + 1
+    id_detail = f"{id_transaksi}-{urutan}"
 
-    transaksi.tambah_detail(n_detail)
+    detail_baru = Detail(id_detail, id_transaksi, makanan_obj.id_makanan, makanan_obj, jumlah, subtotal)
+    transaksi.tambah_detail(detail_baru)
 
+    save_makanan(daftar_makanan)
     save_transaksi(daftar_transaksi)
     save_detail(daftar_transaksi)
 
-    print(f"Pesanan {makanan_obj.nama} berhasil ditambahkan.\n")
+    print(f"\nPesanan {makanan_obj.nama} x {jumlah} berhasil ditambahkan.")

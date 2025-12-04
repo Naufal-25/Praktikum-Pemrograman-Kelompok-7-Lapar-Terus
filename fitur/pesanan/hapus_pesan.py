@@ -6,23 +6,24 @@ def hapus_pesanan(daftar_transaksi, daftar_makanan):
     print("\n=== Hapus Transaksi ===")
     id_transaksi = input("Masukkan ID transaksi: ")
 
-    index = None
-    for i, transaksi in enumerate(daftar_transaksi):
-        if transaksi.id_transaksi == id_transaksi:
-            index = i
-            for d in transaksi.detail:
-                for m in daftar_makanan:
-                    if m.id_makanan == d.id_makanan:
-                        m.stok += d.jumlah
+    index_target = -1
+    for i, t in enumerate(daftar_transaksi):
+        if t.id_transaksi == id_transaksi:
+            index_target = i
             break
     
-    if index is None:
-        print("Transaksi tidak ditemukan\n")
+    if index_target == -1:
+        print("transaksi tidak ditemukan")
         return
+    transaksi = daftar_transaksi[index_target]
     
-    daftar_transaksi.pop(i)
-
-    transaksi.total = sum(d.subtotal for d in transaksi.detail)
+    print("Mengembalikan stok makanan...")
+    for d in transaksi.detail:
+        if d.makanan:
+            d.makanan.stok += d.jumlah
+            print(f" + {d.makanan.nama} (stok kembali {d.jumlah})" )
+    
+    daftar_transaksi.pop(index_target)
 
     save_makanan(daftar_makanan)
     save_transaksi(daftar_transaksi)
