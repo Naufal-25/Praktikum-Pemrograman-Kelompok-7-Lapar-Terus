@@ -18,10 +18,10 @@ class Detail:
 
     #Simpan ke database txt
     def to_text(self):
-        return f"{self.id_detail},{self.id_transaksi},{self.id_makanan},{self.jumlah},{self.subtotal}"
+        return f"{self.id_detail}|{self.id_transaksi}|{self.id_makanan}|{self.jumlah}|{self.subtotal}"
 
     #Buka dari database txt
     @staticmethod
     def from_text(line):
-        id_detail, id_transaksi, id_makanan, jumlah, subtotal = line.strip().split(",")
+        id_detail, id_transaksi, id_makanan, jumlah, subtotal = line.strip().split("|")
         return Detail(id_detail, id_transaksi, id_makanan, None, int(jumlah), float(subtotal))

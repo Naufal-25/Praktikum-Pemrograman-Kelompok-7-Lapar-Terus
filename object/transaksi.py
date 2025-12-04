@@ -19,11 +19,11 @@ class Transaksi:
     
     #simpan ke database txt
     def to_text(self):
-        return f"{self.id_transaksi},{self.pembeli.id_pembeli},{self.pembeli.nama},{self.pembeli.kontak},{self.hitung_total()}"
+        return f"{self.id_transaksi}|{self.pembeli.nama}|{self.pembeli.kontak}|{self.hitung_total()}"
     
     #buka dari database txt
     @staticmethod
     def from_text(line):
-        id_transaksi, id_pembeli, nama, kontak, total = line.strip().split(",")
-        pembeli = Pembeli(id_pembeli, nama, kontak)
-        return Transaksi(id_transaksi, pembeli)
+        id_transaksi, nama, kontak, total = line.strip().split("|")
+        pembeli = Pembeli(nama, kontak)
+        return Transaksi(id_transaksi, pembeli, int(float(total)))

@@ -10,10 +10,10 @@ class Makanan:
     
     #buat simpan ke database txt
     def to_text(self):
-        return f"{self.id_makanan},{self.nama},{self.harga},{self.stok}"
+        return f"{self.id_makanan}|{self.nama}|{self.harga}|{self.stok}"
     
     #buat liat dari database txt
     @staticmethod
     def from_text(line):
-        id_makanan, nama, harga, stok = line.strip().split(",")
-        return Makanan(id_makanan, nama, int(harga), int(stok))
+        id_makanan, nama, harga, stok = line.strip().split("|")
+        return Makanan(id_makanan, nama, int(float(harga)), int(stok))

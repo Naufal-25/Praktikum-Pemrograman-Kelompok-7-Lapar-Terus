@@ -1,4 +1,4 @@
-M001,Nasi Goreng,10000,15
-M002,Ayam Geprek,7000,22
-M003,Es Teh,3000,17
-M004,Jus Jeruk,5000,20
+M001|Nasi Goreng|10000|15
+M002|Ayam Geprek|7000|22
+M003|Es Teh|3000|17
+M004|Jus Jeruk|5000|20
