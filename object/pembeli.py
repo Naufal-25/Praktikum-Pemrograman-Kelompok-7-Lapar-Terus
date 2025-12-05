@@ -1,5 +1,5 @@
 class Pembeli:
-    def __init__(self, id_pembeli, nama, kontak):
+    def __init__(self, nama, kontak):
         self.nama = nama
         self.kontak = kontak
     

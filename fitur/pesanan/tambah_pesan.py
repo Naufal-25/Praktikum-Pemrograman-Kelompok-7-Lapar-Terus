@@ -2,6 +2,7 @@ from object.detail import Detail
 from object.transaksi import Transaksi
 from object.pembeli import Pembeli
 from fitur.makanan.datamanage_makanan import save_makanan
+from fitur.makanan.baca_makanan import baca_makanan
 from fitur.pesanan.datamanage_pesan import save_transaksi
 from fitur.pesanan.datamanage_detail import save_detail
 
@@ -27,7 +28,9 @@ def tambah_pesanan(daftar_transaksi, daftar_makanan, pembeli):
         transaksi = Transaksi(id_transaksi, pembeli)
         daftar_transaksi.append(transaksi)
     else:
-        print(f"Melanjutkan pesanan untuk: {transaksi.pembeli.nama}")
+        print(f"Melanjutkan pesanan untuk: {transaksi.pembeli.nama}\n")
+
+    baca_makanan(daftar_makanan)
 
     id_makanan = input("Masukkan ID makanan: ")
 

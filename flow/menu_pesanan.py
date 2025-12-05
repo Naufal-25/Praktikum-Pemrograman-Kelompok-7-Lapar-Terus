@@ -4,7 +4,7 @@ from fitur.pesanan.ubah_pesan import ubah_pesanan
 from fitur.pesanan.hapus_pesan import hapus_pesanan
 from fitur.pesanan.bayar_pesan import bayar_pesanan
 
-def menu_pesanan(daftar_transaksi, daftar_makanan, pembeli):
+def menu_pesanan(daftar_transaksi, daftar_makanan):
     while True:
         print("\n=== MENU PESANAN ===")
         print("1. Tambah Pesanan")

@@ -11,6 +11,8 @@ def load_makanan():
         makanan = makanan.from_text(line)
         if makanan is not None:
             daftar_makanan.append(makanan)
+    
+    return daftar_makanan
 
 def save_makanan(daftar_makanan):
     lines = [m.to_text() for m in daftar_makanan]
