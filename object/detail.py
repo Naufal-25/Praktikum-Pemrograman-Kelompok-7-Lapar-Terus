@@ -13,8 +13,12 @@ class Detail:
         return self.subtotal
     
     def __str__(self):
-        nama = self.makanan.nama if self.makanan else f"ID:{self.id_makanan}"
-        return f"Item [{self.id_detail}] {nama} x {self.jumlah} = Rp{self.subtotal}"
+        if self.makanan is not None:
+            nama_tampil = self.makanan.nama
+        else:
+            nama_tampil = f"Item Terhapus ({self.id_makanan})"
+        
+        return f"{nama_tampil} x {self.jumlah} = Rp{self.subtotal}"
 
     #Simpan ke database txt
     def to_text(self):
@@ -25,6 +29,9 @@ class Detail:
     def from_text(line):
         try:
             parts = line.strip().split("|")
+            if len(parts) < 5:
+                return None
+            
             id_detail = parts[0]
             id_transaksi = parts[1]
             id_makanan = parts[2]
