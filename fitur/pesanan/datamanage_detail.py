@@ -21,10 +21,11 @@ def load_detail(daftar_transaksi, daftar_makanan):
             continue
 
         makanan_obj = map_makanan.get(d.id_makanan)
+
         if makanan_obj is not None:
             d.makanan = makanan_obj
         else:
-            continue
+            pass
 
         transaksi_obj = map_transaksi.get(d.id_transaksi)
         if transaksi_obj:

@@ -8,9 +8,9 @@ def load_makanan():
     daftar_makanan = []
     
     for line in lines:
-        makanan = makanan.from_text(line)
-        if makanan is not None:
-            daftar_makanan.append(makanan)
+        makanan_obj = Makanan.from_text(line)
+        if makanan_obj is not None:
+            daftar_makanan.append(makanan_obj)
     
     return daftar_makanan
 

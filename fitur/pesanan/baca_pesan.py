@@ -5,7 +5,7 @@ def baca_pesanan(daftar_transaksi):
         return
     
     for t in daftar_transaksi:
-        print("="*40)
+        print("\n"+"="*40)
         print(f"ID: {t.id_transaksi}")
         print(f"Pembeli: {t.pembeli.nama} ({t.pembeli.kontak})")
         print("-"*40)
