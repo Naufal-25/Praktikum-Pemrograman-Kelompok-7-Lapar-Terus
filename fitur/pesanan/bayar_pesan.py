@@ -31,16 +31,16 @@ def bayar_pesanan(daftar_transaksi, daftar_makanan):
     if uang < total_tagihan:
         kurang = total_tagihan - uang
         print(f"Uang kurang: Rp {kurang}")
+        print(f"\nTransaksi {id_transaksi} gagal diselesaikan")
     else:
         kembalian =  uang - total_tagihan
         print(f"Kembalian : Rp {kembalian}")
         print("\n--- Pembayaran Lunas ---")
     
-    daftar_transaksi.pop(index_target)
+        daftar_transaksi.pop(index_target)
+        print(f"\nTransaksi {id_transaksi} berhasil diselesaikan")
 
     save_makanan(daftar_makanan)
     save_transaksi(daftar_transaksi)
     save_detail(daftar_transaksi)
-
-    print(f"\nTransaksi {id_transaksi} berhasil diselesaikan")
     
